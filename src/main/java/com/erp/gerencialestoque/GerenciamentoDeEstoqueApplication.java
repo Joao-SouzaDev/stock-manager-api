@@ -14,15 +14,5 @@ public class GerenciamentoDeEstoqueApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(GerenciamentoDeEstoqueApplication.class, args);
 	}
-	@Bean
-	CommandLineRunner runner(ProductRepository productRepository){
-		return args -> {
-			Product product = new Product();
-			product.setReferece("VL013");
-			product.setDescription("Vestido longo borado");
-			product.setUnitOfMeasure(UnitOfMeasure.Foot);
-			Product saved = productRepository.save(product);
-		};
-	}
 }
 
