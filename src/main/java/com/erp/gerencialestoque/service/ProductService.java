@@ -1,5 +1,7 @@
 package com.erp.gerencialestoque.service;
 
+import com.erp.gerencialestoque.dto.CreateProductDto;
+import com.erp.gerencialestoque.mapper.ProductMapper;
 import com.erp.gerencialestoque.model.Product;
 import com.erp.gerencialestoque.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +16,8 @@ public class ProductService {
     public ProductService(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }
-    public Product createProduct(Product product) {
+    public Product createProduct(CreateProductDto createProductDto) {
+        Product product = ProductMapper.INSTANCE.toEntity(createProductDto);
         return productRepository.save(product);
     }
     public Product findProductById(Integer id) {
